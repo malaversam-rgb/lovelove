@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>unclick+</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="fotitos/1love.jpeg" />
+
+  <!-- Meta -->
+  <meta name="description" content="Unclick+. Un gesto pequeño para un amor inmenso." />
+  <meta property="og:title" content="unclick+" />
+  <meta property="og:description" content="Feliz 14 de febrero 💗" />
+  <meta property="og:image" content="fotitos/1love.jpeg" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Tahoma, sans-serif;
+    }
+
+    /* ===== FONDO GIF ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("fondo/gatos.gif") center / cover no-repeat;
+      z-index: -2;
+    }
+
+    /* Overlay oscuro */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: -1;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      cursor: pointer;
+      color: #ffd1eb;
+      text-align: center;
+      background: transparent; /* CLAVE */
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      padding: 28px;
+      border-radius: 26px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+    }
+
+    img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-bottom: 18px;
+      display: none;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin: 0;
+      white-space: pre-line;
+      text-shadow: 0 0 10px rgba(255, 180, 220, 0.4);
+    }
+
+    img, h1 {
+      transition: opacity 0.4s ease;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" onclick="changeVibe()">
+    <img id="vibeImage" alt="foto amor" />
+    <h1 id="phrase">FELIZ 14 DE FEBRERO VEXI &lt;3</h1>
+  </div>
+
+  <script>
+    const phrases = [
+      "Acariciar mil gatos es conocer tu alma\n\nSomos locxs rebeldes\nloco de estar a tu lado\nsos maravillosa\nextrañamente perfecta, brillante",
+      "Te amo cariño",
+      "Feliz 14 de febrero guapa 👩🏻‍❤️‍💋‍👩🏽",
+      "Después de tanto, qué gusto estar vivxs, y juntxs",
+      "Te quiero con la eternidad que nos concede la brevedad de tantos momentos inolvidables.",
+      "¡Ay, Amor! No cabe duda: ¡tu amor es una cosa esplendorosa!",
+      "Seamos la llama que caliente, siempre."
+    ];
+
+    const images = [
+      "fotitos/1love.jpeg",
+      "fotitos/2love.jpeg",
+      "fotitos/3love.jpeg",
+      "fotitos/4love.jpeg",
+      "fotitos/5love.jpeg",
+      "fotitos/6love.jpeg",
+      "fotitos/7love.jpeg",
+      "fotitos/8love.jpeg"
+    ];
+
+    const phraseEl = document.getElementById("phrase");
+    const imageEl = document.getElementById("vibeImage");
+
+    let showingText = true;
+
+    function changeVibe() {
+      if (showingText) {
+        phraseEl.style.display = "none";
+        imageEl.src = images[Math.floor(Math.random() * images.length)];
+        imageEl.style.display = "block";
+      } else {
+        imageEl.style.display = "none";
+        phraseEl.textContent =
+          phrases[Math.floor(Math.random() * phrases.length)];
+        phraseEl.style.display = "block";
+      }
+      showingText = !showingText;
+    }
+  </script>
+</body>
+</html>
