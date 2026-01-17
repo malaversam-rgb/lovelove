@@ -9,11 +9,12 @@
   <!-- Favicon -->
   <link rel="icon" type="image/jpeg" href="fotitos/1love.jpeg" />
 
-  <!-- Meta -->
+  <!-- Meta básicos -->
   <meta name="description" content="Unclick+. Un gesto pequeño para un amor inmenso." />
   <meta property="og:title" content="unclick+" />
   <meta property="og:description" content="Feliz 14 de febrero 💗" />
   <meta property="og:image" content="fotitos/1love.jpeg" />
+  <meta property="og:type" content="website" />
 
   <style>
     * {
@@ -27,43 +28,39 @@
       font-family: Tahoma, sans-serif;
     }
 
-    /* ===== FONDO GIF ===== */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: url("fondo/gatos.gif") center / cover no-repeat;
-      z-index: -2;
-    }
-
-    /* Overlay oscuro */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.45);
-      z-index: -1;
-    }
-
     body {
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 20px;
+      text-align: center;
       cursor: pointer;
       color: #ffd1eb;
-      text-align: center;
-      background: transparent; /* CLAVE */
+
+      /* 🌷 FONDO DE TULIPANES */
+      background: url("fondo/tulipanes.jpg") center / cover no-repeat fixed;
+    }
+
+    /* Oscurecer un poco para legibilidad */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 0;
     }
 
     .container {
+      position: relative;
+      z-index: 1;
       width: 100%;
       max-width: 520px;
       padding: 28px;
       border-radius: 26px;
       background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 30px 70px rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.6);
     }
 
     img {
@@ -138,3 +135,4 @@
   </script>
 </body>
 </html>
+
